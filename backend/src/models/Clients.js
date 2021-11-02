@@ -1,18 +1,20 @@
 const connection = require('./connection');
+const { ObjectId } = require('mongodb');
 
 const getAll = async () => {
-  const query = 'SELECT id, name FROM predialX.clients;';
-  const [clients] = await connection.execute(query);
-  return clients;
+  return connection()
+    .then((db) => db.collection('clients').find().toArray())
+    .then((clients) => clients);
 };
 
 const getById = async (id) => {
-  const query = 'SELECT id, name FROM predialX.clients WHERE id = ?';
-  const [client] = await connection.execute(query, [id]);
+  if (!ObjectId.isValid(id)) return null;
 
-  if (client.length === 0) return null;
+  const client = await connection()
+    .then((db) => db.collection('clients').findOne(new ObjectId(id)));
 
-  return client[0];
+  if (!client) return null;
+  return client;
 };
 
 const serachByName = async (name) => {
@@ -29,10 +31,10 @@ const isValid = (name) => {
   return true;
 };
 
-const create = async (name) => connection.execute(
-  'INSERT INTO predialX.clients (name) VALUES (?)',
-  [name],
-);
+const create = async (name) =>
+  connection()
+    .then((db) => db.collection('clients').insertOne({ name }))
+    .then((result) => result);
 
 module.exports = {
   getAll,
