@@ -1,12 +1,14 @@
 const express = require('express');
 const cors = require('cors'); // permitir outras aplicacoes consumirem esta api.
 const bodyParser = require('body-parser'); // descomprimir os dados da requisição.
+const authMiddleware = require('../authMiddleware');
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(authMiddleware);
 
 const clients = [
   { id: 1, name: 'PredialX' },
