@@ -1,0 +1,18 @@
+use predialX;
+db.clients.insertMany([
+  { "name": "PredialX" },
+  { "name": "XPTO ManPred" },
+  { "name": "Pred Service" },
+]);
+
+db.employers.insertMany([
+  { "name": "Mark Hamill", "email": "mark@predialx.com", "password": "mark123", "client_id": new ObjectId("61815a6638c76e9eabf32b1f") },
+  { "name": "Carrie Fisher", "email": "carrie@predialx.com", "password": "carrie123", "client_id": new ObjectId("61815a6638c76e9eabf32b1f") },
+  { "name": "Harrison Ford", "email": "harrison@predialx.com", "password": "harrison123", "client_id": new ObjectId("61815a6638c76e9eabf32b1f") },
+  { "name": "Alec Guinness", "email": "alec@predialx.com", "password": "alec123", "client_id": new ObjectId("61815a6638c76e9eabf32b1f") },
+  { "name": "Anthony Daniels", "email": "anthony@predialx.com", "password": "anthony123", "client_id": new ObjectId("61815a6638c76e9eabf32b20") },
+  { "name": "Peter Mayhew", "email": "peter@predialx.com", "password": "peter123", "client_id": new ObjectId("61815a6638c76e9eabf32b20") },
+  { "name": "David Prowse", "email": "david@predialx.com", "password": "david123", "client_id": new ObjectId("61815a6638c76e9eabf32b20") },
+  { "name": "Kenny Baker", "email": "kenny@predialx.com", "password": "kenny123", "client_id": new ObjectId("61815a6638c76e9eabf32b21") },
+  { "name": "Peter Cushin", "email": "peterCushin@predialx.com", "password": "peterCushin123", "client_id": new ObjectId("61815a6638c76e9eabf32b21") },
+]);

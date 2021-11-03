@@ -1,11 +1,10 @@
 const connection = require('./connection');
 const { ObjectId } = require('mongodb');
 
-const getAll = async () => {
-  return connection()
+const getAll = () =>
+  connection()
     .then((db) => db.collection('clients').find().toArray())
     .then((clients) => clients);
-};
 
 const getById = async (id) => {
   if (!ObjectId.isValid(id)) return null;
@@ -17,23 +16,23 @@ const getById = async (id) => {
   return client;
 };
 
-const createClient = async (name) =>
+const createClient = (name) =>
   connection()
     .then((db) => db.collection('clients').insertOne({ name }))
     .then((result) => result);
 
-const updateClient = async (id, name) =>
+const updateClient = (id, name) =>
   connection()
     .then((db) => db.collection('clients').updateOne(
       { _id: new ObjectId(id)},
       { $set: { name } },
     ));
 
-const deleteClient = async (id) =>
+const deleteClient = (id) =>
   connection()
     .then((db) => db.collection('clients').deleteOne({ _id: new ObjectId(id) }));
 
-const isValid = (name) => {
+const isNameValid = (name) => {
   if(!name || typeof(name) !== 'string') return false;
   return true;
 };
@@ -41,7 +40,7 @@ const isValid = (name) => {
 module.exports = {
   getAll,
   getById,
-  isValid,
+  isNameValid,
   createClient,
   updateClient,
   deleteClient,

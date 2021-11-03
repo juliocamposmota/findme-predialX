@@ -1,6 +1,0 @@
-use predialX;
-db.clients.insertMany([
-  { "name": "PredialX" },
-  { "name": "XPTO ManPred" },
-  { "name": "Pred Service" },
-]);

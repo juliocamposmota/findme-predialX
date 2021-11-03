@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const { name } = req.body;
 
-  if (!Client.isValid(name)) return res.status(400).json({ message: 'Invalid data.'});
+  if (!Client.isNameValid(name)) return res.status(400).json({ message: 'Invalid data.'});
 
   await Client.createClient(name);
   res.status(201).json({ message: 'Client created successfully!' });
@@ -28,8 +28,8 @@ router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
   const client = await Client.getById(id);
-  
-  if (!Client.isValid(name)) return res.status(400).json({ message: 'Invalid data.' });
+
+  if (!Client.isNameValid(name)) return res.status(400).json({ message: 'Invalid data.' });
   if (!client) return res.status(404).json({ message: 'Client not found' });
 
   await Client.updateClient(id, name);
