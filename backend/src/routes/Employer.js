@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Employer = require('./services/Employer');
+const Employer = require('../services/Employer');
 
 router.get('/', async (req, res) => {
   const employers = await Employer.getAll();
