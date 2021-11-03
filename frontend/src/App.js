@@ -1,13 +1,15 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Provider from './context/Provider';
+import Home from './pages/Home';
 import './App.css';
 
 function App() {
   return (
     <Provider>
-      <div className="App">
-        <h1>Predial Maintenance App</h1>
-      </div>
+      <Routes>
+        <Route exact path="/" element={ <Home /> } />
+      </Routes>
     </Provider>
   );
 }
