@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Employer = require('./models/Employer');
+const Employer = require('./services/Employer');
 
 router.get('/', async (req, res) => {
   const employers = await Employer.getAll();
@@ -17,37 +17,26 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const { name, email, password, client_id } = req.body;
+  const employer = await Employer.createEmployer(name, email, password, client_id);
 
-  if (!Employer.isDataValid(name, email, password, client_id)) {
-    return res.status(400).json({ message: 'Invalid data.'});
-  }
-
-  await Employer.createEmployer(name, email, password, client_id);
+  if (!employer) return res.status(400).json({ message: 'Invalid data.'});
   res.status(201).json({ message: 'Employer created successfully!' });
 });
 
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name, email, password, client_id } = req.body;
-  const employer = await Employer.getById(id);
+  const employer = await Employer.updateEmployer(id, name, email, password, client_id);
 
-  if (!Employer.isDataValid(name, email, password, client_id)) {
-    return res.status(400).json({ message: 'Invalid data.' });
-  }
-
-  if (!employer) return res.status(404).json({ message: 'Employer not found' });
-
-  await Employer.updateEmployer(id, name, email, password, client_id);
+  if (!employer) return res.status(404).json({ message: 'Invalid Data.' });
   res.status(200).json({ message: 'Employer updated successfully!' });
 });
 
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  const employer = await Employer.getById(id);
+  const employer = await Employer.deleteEmployer(id);
 
   if (!employer) return res.status(404).json({ message: 'Employer not found!' });
-
-  await Employer.deleteEmployer(id);
   res.status(204).end();
 });
 
