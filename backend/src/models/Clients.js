@@ -17,29 +17,32 @@ const getById = async (id) => {
   return client;
 };
 
-const serachByName = async (name) => {
-  const query = `SELECT * FROM predialX.clients WHERE name LIKE '%${name}%'`;
-  const [clients] = await connection.execute(query);
+const createClient = async (name) =>
+  connection()
+    .then((db) => db.collection('clients').insertOne({ name }))
+    .then((result) => result);
 
-  if (clients.length === 0) return null;
+const updateClient = async (id, name) =>
+  connection()
+    .then((db) => db.collection('clients').updateOne(
+      { _id: new ObjectId(id)},
+      { $set: { name } },
+    ));
 
-  return clients;
-};
+const deleteClient = async (id) =>
+  connection()
+    .then((db) => db.collection('clients').deleteOne({ _id: new ObjectId(id) }));
 
 const isValid = (name) => {
   if(!name || typeof(name) !== 'string') return false;
   return true;
 };
 
-const create = async (name) =>
-  connection()
-    .then((db) => db.collection('clients').insertOne({ name }))
-    .then((result) => result);
-
 module.exports = {
   getAll,
   getById,
-  serachByName,
   isValid,
-  create,
+  createClient,
+  updateClient,
+  deleteClient,
 };

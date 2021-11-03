@@ -7,14 +7,6 @@ router.get('/', async (_req, res) => {
   res.status(200).json(clients);
 });
 
-router.get('/search', async (req, res) => {
-  const { name } = await req.query;
-  const filteredClients = await Client.serachByName(name);
-
-  if (!filteredClients) return res.status(404).json({ message: `No client match with ${name}`});
-  res.status(200).json(filteredClients);
-});
-
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   const client = await Client.getById(id);
@@ -28,30 +20,29 @@ router.post('/', async (req, res) => {
 
   if (!Client.isValid(name)) return res.status(400).json({ message: 'Invalid data.'});
 
-  await Client.create(name);
+  await Client.createClient(name);
   res.status(201).json({ message: 'Client created successfully!' });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-  const clientIndex = clients.findIndex((c) => c.id === parseInt(id));
+  const client = await Client.getById(id);
+  
+  if (!Client.isValid(name)) return res.status(400).json({ message: 'Invalid data.' });
+  if (!client) return res.status(404).json({ message: 'Client not found' });
 
-  if (clientIndex === -1) return res.status(404).json({ message: 'Client not found!' });
-
-  clients[clientIndex] = { ...clients[clientIndex], name };
-
+  await Client.updateClient(id, name);
   res.status(200).json({ message: 'Client updated successfully!' });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  const clientIndex = clients.findIndex((c) => c.id === parseInt(id));
+  const client = await Client.getById(id);
 
-  if (clientIndex === -1) return res.status(404).json({ message: 'Client not found!' });
+  if (!client) return res.status(404).json({ message: 'Client not found!' });
 
-  clients.splice(clientIndex, 1);
-
+  await Client.deleteClient(id);
   res.status(204).end();
 });
 
