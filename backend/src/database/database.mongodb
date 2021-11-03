@@ -1,0 +1,44 @@
+use predialX;
+db.clients.insertMany([
+  { "name": "PredialX" },
+  { "name": "XPTO ManPred" },
+  { "name": "Pred Service" },
+]);
+
+db.employers.insertMany([
+  { "name": "Mark Hamill", "email": "mark@predialx.com", "password": "mark123", "client_id": "PredialX" },
+  { "name": "Carrie Fisher", "email": "carrie@predialx.com", "password": "carrie123", "client_id": "PredialX" },
+  { "name": "Harrison Ford", "email": "harrison@predialx.com", "password": "harrison123", "client_id": "PredialX" },
+  { "name": "Alec Guinness", "email": "alec@predialx.com", "password": "alec123", "client_id": "PredialX" },
+  { "name": "Anthony Daniels", "email": "anthony@manpred.com", "password": "anthony123", "client_id": "XPTO ManPred" },
+  { "name": "Peter Mayhew", "email": "peter@manpred.com", "password": "peter123", "client_id": "XPTO ManPred" },
+  { "name": "David Prowse", "email": "david@manpred.com", "password": "david123", "client_id": "XPTO ManPred" },
+  { "name": "Kenny Baker", "email": "kenny@predservice.com", "password": "kenny123", "client_id": "Pred Service" },
+  { "name": "Peter Cushin", "email": "peterCushin@predservice.com", "password": "peterCushin123", "client_id": "Pred Service" },
+]);
+
+db.orders.insertMany([
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "PredialX", "employer_id": "Mark Hamill", "description": "Verificar corrosão na viga 4A15ITB", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "PredialX", "employer_id": "Mark Hamill", "description": "Fazer levantamento de material para correção da parede externa da Fachada", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "PredialX", "employer_id": "Mark Hamill", "description": "Fazer levantamento de material para correção do sistema sanitário da área de lazer", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "PredialX", "employer_id": "Mark Hamill", "description": "Acompanhar equipe terceirizada na manutenção das bombas", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Anthony Daniels", "description": "Trocar 2 luminárias do tipo XY na praça de alimentação", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Anthony Daniels", "description": "Trocar 6 lampadas queimadas no corredor A da expansão", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Anthony Daniels", "description": "Fazer manutenção periodica nos quadros de energia", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Anthony Daniels", "description": "Trocar medidor de enerdia da loja X", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Anthony Daniels", "description": "Trocar medidor de enerdia da loja Y", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Anthony Daniels", "description": "Trocar medidor de enerdia da loja Z", "deadline": ISODate("2021-10-25") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "Pred Service", "employer_id": "Kenny Baker", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit", "deadline": ISODate("2021-10-26") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "Pred Service", "employer_id": "Kenny Baker", "description": "Cras porttitor lorem congue, hendrerit augue sit amet", "deadline": ISODate("2021-10-26") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "Pred Service", "employer_id": "Kenny Baker", "description": "Etiam rhoncus sit amet augue a suscipit", "deadline": ISODate("2021-10-26") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Peter Mayhew", "description": "Aenean at eros velit. Phasellus rutrum ut nibh rutrum porttitor", "deadline": ISODate("2021-10-26") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Peter Mayhew", "description": "Cras commodo vehicula egestas. Donec lacinia diam non felis elementum tempor", "deadline": ISODate("2021-10-26") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Peter Mayhew", "description": "Nulla facilisi. Quisque accumsan diam vitae turpis dapibus", "deadline": ISODate("2021-10-26") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "Peter Mayhew", "description": "Praesent nisi augue, gravida eu luctus vitae.", "deadline": ISODate("2021-10-26") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "David Prowse", "description": "Integer ultrices ultrices dui, sit amet sollicitudin ante tincidunt", "deadline": ISODate("2021-10-27") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "David Prowse", "description": "Ut egestas pretium justo, sed rhoncus neque aliquet commodo", "deadline": ISODate("2021-10-27") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "XPTO ManPred", "employer_id": "David Prowse", "description": "Suspendisse finibus magna sit amet orci elementum, ac iaculis orci elementum", "deadline": ISODate("2021-10-27") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "Pred Service", "employer_id": "Peter Cushin", "description": "Nulla non pellentesque mauris. Phasellus fermentum sem eget est rutrum", "deadline": ISODate("2021-10-27") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "Pred Service", "employer_id": "Peter Cushin", "description": "Quisque a metus magna. Mauris tempus nisi vitae condimentum sagittis", "deadline": ISODate("2021-10-27") },
+  { "dateCreation": ISODate("2021-10-24"), "client_id": "Pred Service", "employer_id": "Peter Cushin", "description": "Integer auctor urna ut tellus commodo hendrerit", "deadline": ISODate("2021-10-27") },
+]);
