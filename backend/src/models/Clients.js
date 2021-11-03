@@ -1,10 +1,11 @@
 const connection = require('./connection');
 const { ObjectId } = require('mongodb');
 
-const getAll = () =>
-  connection()
+const getAll = () => {
+  return connection()
     .then((db) => db.collection('clients').find().toArray())
     .then((clients) => clients);
+};
 
 const getById = async (id) => {
   if (!ObjectId.isValid(id)) return null;
@@ -16,21 +17,24 @@ const getById = async (id) => {
   return client;
 };
 
-const createClient = (name) =>
-  connection()
+const createClient = (name) => {
+  return connection()
     .then((db) => db.collection('clients').insertOne({ name }))
     .then((result) => result);
+};
 
-const updateClient = (id, name) =>
-  connection()
+const updateClient = (id, name) => {
+  return connection()
     .then((db) => db.collection('clients').updateOne(
       { _id: new ObjectId(id)},
       { $set: { name } },
     ));
+};
 
-const deleteClient = (id) =>
-  connection()
+const deleteClient = (id) => {
+  return connection()
     .then((db) => db.collection('clients').deleteOne({ _id: new ObjectId(id) }));
+};
 
 const isNameValid = (name) => {
   if(!name || typeof(name) !== 'string') return false;
