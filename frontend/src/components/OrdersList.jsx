@@ -5,8 +5,8 @@ function OrdersList({ orders }) {
   return (
     <div className="order-container">
       {
-        orders.map(({ client_id, employer_id, deadline }) => (
-          <div className="order-card">
+        orders.map(({ _id, client_id, employer_id, deadline }) => (
+          <div className="order-card" key={ _id }>
             <div className="input-card">
               <p>Cliente</p>
               <p>{ client_id }</p>

@@ -13,13 +13,7 @@ function Header() {
         <div>
           <ul className="list">
             <li className="item">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="item">
-              <Link to="/">Clientes</Link>
-            </li>
-            <li className="item">
-              <Link to="/">Ordens</Link>
+              <Link to="/">Dashboard</Link>
             </li>
           </ul>
         </div>
