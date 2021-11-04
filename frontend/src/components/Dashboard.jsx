@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import Context from "../context";
-import ClientContainer from "./ClientContainer";
+import ClientsList from "./ClientsList";
+import OrdersList from "./OrdersList";
 import './styles/Dashboard.css';
 
 function Dashboard() {
-  const { clientsData } = useContext(Context);
-  console.log(clientsData);
+  const { clientsData, ordersData } = useContext(Context);
 
   return (
     <div className="dashboard">
@@ -14,14 +14,14 @@ function Dashboard() {
       <div>
         <h2>Clientes</h2>
 
-        <ClientContainer clients={ clientsData } />
+        <ClientsList clients={ clientsData } />
       </div>
 
       <div>
         <h2>Ordens</h2>
 
         <div>
-          
+          <OrdersList orders={ ordersData } />
         </div>
       </div>
     </div>

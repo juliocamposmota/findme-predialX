@@ -1,7 +1,7 @@
 import React from "react";
-import './styles/ClientContainer.css';
+import './styles/ClientsList.css';
 
-function ClientContainer({ clients }) {
+function ClientList({ clients }) {
   return (
     <div className="client-container">
       {
@@ -18,4 +18,4 @@ function ClientContainer({ clients }) {
   );
 }
 
-export default ClientContainer;
+export default ClientList;
