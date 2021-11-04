@@ -42,7 +42,7 @@ git clone git@github.com:juliocamposmota/findme-predialX.git
 ```
 2. Acessar diretório do repositório e instalar dependências
 ```
-cd findeme-predialX
+cd findem-predialX
 npm install
 ```
 3. Iniciar uma instância do mongodb (inserir dados se desejar)
