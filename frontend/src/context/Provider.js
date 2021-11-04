@@ -1,13 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import Context from ".";
 
 function Provider({ children }) {
-  const [data, setData] = useState([]);
+  const [clientsData, setClientsData] = useState([]);
+  const [clientsDataError, setClientsDataError] = useState(false);
+
+  useEffect(() => {
+    const END_POINT = 'http://localhost:3001/clients';
+
+    const fetchClientsData = async () => {
+      try {
+        const response = await fetch(END_POINT);
+        const results = await response.json();
+
+        setClientsData(results);
+      } catch (error) {
+        setClientsDataError(true);
+      }
+    };
+
+    fetchClientsData();
+  }, []);
 
   const context = {
-    data,
-    setData,
+    clientsData,
+    setClientsData,
+    clientsDataError,
   };
 
   return (
