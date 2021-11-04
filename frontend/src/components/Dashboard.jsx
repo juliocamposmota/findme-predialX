@@ -5,7 +5,7 @@ import OrdersList from "./OrdersList";
 import './styles/Dashboard.css';
 
 function Dashboard() {
-  const { clientsData, ordersData } = useContext(Context);
+  const { clients, orders } = useContext(Context);
 
   return (
     <div className="dashboard">
@@ -14,14 +14,14 @@ function Dashboard() {
       <div>
         <h2>Clientes</h2>
 
-        <ClientsList clients={ clientsData } />
+        <ClientsList clients={ clients } />
       </div>
 
       <div>
         <h2>Ordens</h2>
 
         <div>
-          <OrdersList orders={ ordersData } />
+          <OrdersList orders={ orders } />
         </div>
       </div>
     </div>

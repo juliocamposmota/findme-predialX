@@ -10,7 +10,7 @@ function ClientList({ clients }) {
           <div className="client-card" key={ _id }>
             <p>{ name }</p>
 
-            <Link to={ `/clients/${_id}` }>
+            <Link to={ `/clients/${ _id }` }>
               <button
                 className="details"
                 type="button"

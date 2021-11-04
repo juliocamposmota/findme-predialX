@@ -3,50 +3,71 @@ import PropTypes from 'prop-types';
 import Context from ".";
 
 function Provider({ children }) {
-  const [clientsData, setClientsData] = useState([]);
-  const [clientsDataError, setClientsDataError] = useState(false);
-  const [ordersData, setOrdersData] = useState([]);
-  const [ordersDataError, setOrdersDataError] = useState(false);
+  const [clients, setClients] = useState([]);
+  const [clientsError, setClientsError] = useState(false);
+  const [orders, setOrders] = useState([]);
+  const [ordersError, setOrdersError] = useState(false);
+  const [employers, setEmployers] = useState([]);
+  const [employersError, setEmployersError] = useState(false);
 
   useEffect(() => {
     const END_POINT = 'http://localhost:3001/clients';
 
-    const fetchClientsData = async () => {
+    const fetchClients = async () => {
       try {
         const response = await fetch(END_POINT);
         const results = await response.json();
 
-        setClientsData(results);
+        setClients(results);
       } catch (error) {
-        setClientsDataError(true);
+        setClientsError(true);
       }
     };
 
-    fetchClientsData();
+    fetchClients();
   }, []);
 
   useEffect(() => {
     const END_POINT = 'http://localhost:3001/orders';
 
-    const fetchOrdersData = async () => {
+    const fetchOrders = async () => {
       try {
         const response = await fetch(END_POINT);
         const results = await response.json();
 
-        setOrdersData(results);
+        setOrders(results);
       } catch (error) {
-        setOrdersDataError(true);
+        setOrdersError(true);
       }
     };
 
-    fetchOrdersData();
+    fetchOrders();
+  }, []);
+
+  useEffect(() => {
+    const END_POINT = 'http://localhost:3001/employers';
+
+    const fetchEmployers = async () => {
+      try {
+        const response = await fetch(END_POINT);
+        const results = await response.json();
+
+        setEmployers(results);
+      } catch (error) {
+        setEmployersError(true);
+      }
+    };
+
+    fetchEmployers();
   }, []);
 
   const context = {
-    clientsData,
-    clientsDataError,
-    ordersData,
-    ordersDataError,
+    clients,
+    clientsError,
+    orders,
+    ordersError,
+    employers,
+    employersError,
   };
 
   return (
