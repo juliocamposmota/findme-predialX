@@ -8,9 +8,11 @@
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-:small_blue_diamond: [Layout da Aplicação](#layout-da-aplicação-dash)
-
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
+
+:small_blue_diamond: [Linguagens, dependencias e libs utilizadas](#linguagens-,-dependencias-e-libs-utilizadas)
+
+:small_blue_diamond: [Tarefas em aberto](#tarefas-em-aberto)
 
 ## Descrição do projeto 
 
