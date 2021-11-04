@@ -8,22 +8,22 @@ function ClientForm() {
     setName(target.value);
   };
 
-  const handleSubmit = async () => {
-    const END_POINT = 'http://localhost:3001/clients/';
-    const REQUEST_OPTIONS = {
-      method: 'POST',
-      form: { name },
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    };
+  // const handleSubmit = async () => {
+  //   const END_POINT = 'http://localhost:3001/clients/';
+  //   const REQUEST_OPTIONS = {
+  //     method: 'POST',
+  //     form: { name },
+  //     headers: {
+  //       'Content-Type': 'multipart/form-data',
+  //     },
+  //   };
 
-    await fetch(END_POINT, REQUEST_OPTIONS)
-      .then(data => console.log(`${data} adicionado com sucesso!`));
-  };
+  //   await fetch(END_POINT, REQUEST_OPTIONS)
+  //     .then(data => console.log(`${data} adicionado com sucesso!`));
+  // };
 
   return (
-    <div className="form-container" onSubmit={ handleSubmit }>
+    <div className="form-container">
       <form className="client-form">
         <label className="form-label" htmlFor="name">
           Nome:
