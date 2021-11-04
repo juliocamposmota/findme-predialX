@@ -34,8 +34,10 @@ function ClientDetails() {
         <h1 className="title">{ client.name }</h1>
       </div>
 
-      <div>
-        <h2>Colaboradores</h2>
+      <div className="dashboard">
+        <div>
+          <h2>Colaboradores</h2>
+        </div>
 
         <div>
           <EmployersList id={ params.id } />
