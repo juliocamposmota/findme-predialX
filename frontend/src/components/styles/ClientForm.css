@@ -1,0 +1,29 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.client-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.form-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-input {
+  margin-left: 8px;
+  width: 100%;
+}
+
+.form-button {
+  margin-top: 8px;
+}

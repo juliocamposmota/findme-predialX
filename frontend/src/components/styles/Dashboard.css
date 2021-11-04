@@ -1,0 +1,13 @@
+.dashboard {
+  padding: 0 20px;
+}
+
+.title {
+  text-align: center;
+}
+
+.nav-dash {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
