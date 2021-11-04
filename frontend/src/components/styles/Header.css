@@ -1,0 +1,28 @@
+.header {
+  padding: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-family: 'Mochiy Pop One', sans-serif;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  list-style-type: none;
+}
+
+.item {
+  margin-right: 6px;
+  font-size: 19px;
+}
+
+.item a {
+  text-decoration: none;
+}
