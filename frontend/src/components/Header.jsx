@@ -6,17 +6,13 @@ function Header() {
   return (
     <header className="header">
       <nav className="nav">
-        <div>
-          <p className="logo">PredialX</p>
-        </div>
+        <p className="logo">PredialX</p>
 
-        <div>
-          <ul className="list">
-            <li className="item">
-              <Link to="/">Dashboard</Link>
-            </li>
-          </ul>
-        </div>
+        <ul className="list">
+          <li className="item">
+            <Link to="/">Dashboard</Link>
+          </li>
+        </ul>
       </nav>
     </header>
   );

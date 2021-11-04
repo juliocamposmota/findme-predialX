@@ -30,18 +30,12 @@ function ClientDetails() {
     <div>
       <Header />
 
-      <div>
-        <h1 className="title">{ client.name }</h1>
-      </div>
+      <h1 className="title">{ client.name }</h1>
 
       <div className="dashboard">
-        <div>
-          <h2>Colaboradores</h2>
-        </div>
+        <h2>Colaboradores</h2>
 
-        <div>
-          <EmployersList id={ params.id } />
-        </div>
+        <EmployersList id={ params.id } />
       </div>
     </div>
   );
