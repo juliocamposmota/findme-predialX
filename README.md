@@ -44,13 +44,16 @@ git clone git@github.com:juliocamposmota/findme-predialX.git
 ```
 2. Acessar diretório do repositório e instalar dependências
 ```
-cd findem-predialX
+cd findme-predialX/backend
+npm install
+
+cd findme-predialX/frontend
 npm install
 ```
-3. Iniciar uma instância do mongodb (inserir dados se desejar)
+3. Iniciar uma instância do mongodb
 ```
 systemctl start mongod
-./backend/src/database/database.mongodb
+./backend/src/database/database.mongodb // arquivo com dados falsos
 ```
 4. Rodar script back-end
 ```
